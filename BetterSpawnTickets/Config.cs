@@ -9,19 +9,7 @@ namespace BetterSpawnTickets
         [Description("Whether or not the plugin is enabled on this server.")]
         public bool IsEnabled { get; set; } = true;
 
-        [Description("Whether or not a team's tickets should be removed when all of its members are dead.")]
-        public bool EliminateTeams { get; set; } = true;
-
-        [Description("Prevents teams that have been eliminated from becoming un-eliminated.")]
-        public bool TeamsStayEliminated { get; set; } = true;
-
-        [Description("Whether or not MTF can be eliminated before the first spawn wave has occured. Its recommended to keep this as false.")]
-        public bool EliminateMtfBeforeFirstWave { get; set; } = false;
-
-        [Description("Whether or not a team's tickets should be transferred to the other team once the team dies.")]
-        public bool TransferTickets { get; set; } = true;
-
-        [Description("How many tickets the MTF team should be granted when a given class is killed by them. Supports Negative Values")]
+        [Description("The number of tickets that MTF should be granted when a Scientist, Guard, or MTF kills a given class. Supports Negative Values")]
         public Dictionary<string, int> MtfTicketsOnKill { get; set; } = new Dictionary<string, int>
         {
             {"ClassD", 0 },
@@ -43,7 +31,7 @@ namespace BetterSpawnTickets
             {"Tutorial", 0 },
         };
 
-        [Description("How many tickets the Chaos team should be granted when a given class is killed by them. Supports negative values.")]
+        [Description("The number of tickets that MTF should be granted when a Class D or Chaos Insurgent kills a given class. Supports Negative Values")]
         public Dictionary<string, int> ChaosTicketsOnKill { get; set; } = new Dictionary<string, int>
         {
             {"ClassD", 0 },
@@ -70,7 +58,7 @@ namespace BetterSpawnTickets
         {
             {"GeneratorActivated", 0 },
             {"WarheadDetonation", 0 },
-            {"PocketdimensionEscape", 0 },
+            {"PlayerEscapePD", 0 },
             {"MtfRespawn", 0 },
             {"ChaosRespawn", 0 }
         };
@@ -80,7 +68,7 @@ namespace BetterSpawnTickets
         {
             {"GeneratorActivated", 0 },
             {"WarheadDetonation", 0 },
-            {"PocketdimensionEscape", 0 },
+            {"PlayerEscapePD", 0 },
             {"MtfRespawn", 0 },
             {"ChaosRespawn", 0 }
         };

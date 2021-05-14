@@ -64,9 +64,11 @@
   <ItemGroup>
     <Compile Include="BetterSpawnTickets.cs" />
     <Compile Include="Config.cs" />
-    <Compile Include="Handlers\Map.cs" />
-    <Compile Include="Handlers\Player.cs" />
-    <Compile Include="Handlers\Server.cs" />
+    <Compile Include="Handlers\GeneratorActivated.cs" />
+    <Compile Include="Handlers\EscapingPD.cs" />
+    <Compile Include="Handlers\Dying.cs" />
+    <Compile Include="Handlers\RespawnWave.cs" />
+    <Compile Include="Handlers\WarheadDetonation.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
