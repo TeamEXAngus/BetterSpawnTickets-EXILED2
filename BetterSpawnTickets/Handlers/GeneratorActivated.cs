@@ -8,8 +8,7 @@ namespace BetterSpawnTickets.Handlers
         public void OnGeneratorActivated(GeneratorActivatedEventArgs ev)
         {
             //Grant tickets to MTF and Chaos when generator activated
-            Respawn.GrantTickets(Respawning.SpawnableTeamType.NineTailedFox, BetterSpawnTickets.Instance.Config.MtfTicketsOnEvent["GeneratorActivated"]);
-            Respawn.GrantTickets(Respawning.SpawnableTeamType.ChaosInsurgency, BetterSpawnTickets.Instance.Config.ChaosTicketsOnEvent["GeneratorActivated"]);
+            MyFunctions.GrantBothTeamsTickets("GeneratorActivated");
         }
     }
 }

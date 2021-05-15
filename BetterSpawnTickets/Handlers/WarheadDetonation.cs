@@ -7,8 +7,8 @@ namespace BetterSpawnTickets.Handlers
         public void OnWarheadDetonation()
         {
             //Grant tickets to MTF and Chaos when warhead detonated
-            Respawn.GrantTickets(Respawning.SpawnableTeamType.NineTailedFox, BetterSpawnTickets.Instance.Config.MtfTicketsOnEvent["WarheadDetonation"]);
-            Respawn.GrantTickets(Respawning.SpawnableTeamType.ChaosInsurgency, BetterSpawnTickets.Instance.Config.ChaosTicketsOnEvent["WarheadDetonation"]);
+            MyFunctions.GrantBothTeamsTickets("WarheadDetonation");
+            Log.Info($"Warhead detonated! MTF now have {Respawn.NtfTickets} and Chaos have {Respawn.ChaosTickets}!");
         }
     }
 }

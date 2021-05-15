@@ -5,19 +5,24 @@ namespace BetterSpawnTickets.Handlers
 {
     internal class Dying
     {
-        //Whenever a player dies check if either team is empty and if so remove their tickets
         public void OnDying(DyingEventArgs ev)
         {
-            //Grant MTF tickets on class killed
-            if (BetterSpawnTickets.IsFoundation(ev.Killer) && ev.Target != ev.Killer)
+            //Grant tickets to a team whenever a member of that team kills a player
+            if (ev.Target != ev.Killer) //Prevents jank when a player is killed by the environment
             {
-                Respawn.GrantTickets(Respawning.SpawnableTeamType.NineTailedFox, BetterSpawnTickets.Instance.Config.MtfTicketsOnKill[ev.Target.Role.ToString()]);
-            }
+                switch (MyFunctions.GetTeam(ev.Killer))
+                {
+                    case Respawning.SpawnableTeamType.NineTailedFox:
+                        MyFunctions.GrantTickets(Respawning.SpawnableTeamType.NineTailedFox, BetterSpawnTickets.Instance.Config.MtfTicketsOnKill[ev.Target.Role.ToString()]);
+                        break;
 
-            //Grant Chaos tickets on class killed
-            else if (BetterSpawnTickets.IsChaos(ev.Killer) && ev.Target != ev.Killer)
-            {
-                Respawn.GrantTickets(Respawning.SpawnableTeamType.ChaosInsurgency, BetterSpawnTickets.Instance.Config.ChaosTicketsOnKill[ev.Target.Role.ToString()]);
+                    case Respawning.SpawnableTeamType.ChaosInsurgency:
+                        MyFunctions.GrantTickets(Respawning.SpawnableTeamType.ChaosInsurgency, BetterSpawnTickets.Instance.Config.ChaosTicketsOnKill[ev.Target.Role.ToString()]);
+                        break;
+
+                    default:
+                        break;
+                }
             }
         }
     }

@@ -29,16 +29,6 @@ namespace BetterSpawnTickets
         {
         }
 
-        public static bool IsFoundation(Player player)
-        {
-            return (player.Team == Team.MTF || player.Role == RoleType.Scientist);
-        }
-
-        public static bool IsChaos(Player player)
-        {
-            return (player.Role == RoleType.ChaosInsurgency || player.Role == RoleType.ClassD);
-        }
-
         //Run startup code when plugin is enabled
         public override void OnEnabled()
         {

@@ -69,6 +69,7 @@
     <Compile Include="Handlers\Dying.cs" />
     <Compile Include="Handlers\RespawnWave.cs" />
     <Compile Include="Handlers\WarheadDetonation.cs" />
+    <Compile Include="MyFunctions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

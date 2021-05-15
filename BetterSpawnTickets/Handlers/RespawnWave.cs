@@ -7,19 +7,22 @@ namespace BetterSpawnTickets.Handlers
     {
         public void OnRespawnWave(RespawningTeamEventArgs ev)
         {
-            //Grant tickets to MTF and Chaos on MTF spawn
-            if (ev.NextKnownTeam == Respawning.SpawnableTeamType.NineTailedFox)
+            //Grant tickets to MTF and Chaos whenever a team respawns
+            switch (ev.NextKnownTeam)
             {
-                Respawn.GrantTickets(Respawning.SpawnableTeamType.NineTailedFox, BetterSpawnTickets.Instance.Config.MtfTicketsOnEvent["MtfRespawn"]); Log.Info($"Gave MTF {BetterSpawnTickets.Instance.Config.MtfTicketsOnEvent["MtfRespawn"]} because MTF respawned!");
-                Respawn.GrantTickets(Respawning.SpawnableTeamType.ChaosInsurgency, BetterSpawnTickets.Instance.Config.ChaosTicketsOnEvent["MtfRespawn"]); Log.Info($"Gave Chaos {BetterSpawnTickets.Instance.Config.ChaosTicketsOnEvent["MtfRespawn"]} because MTF respawned!");
+                case Respawning.SpawnableTeamType.NineTailedFox:
+                    MyFunctions.GrantBothTeamsTickets("MtfRespawn");
+                    break;
+
+                case Respawning.SpawnableTeamType.ChaosInsurgency:
+                    MyFunctions.GrantBothTeamsTickets("ChaosRespawn");
+                    break;
+
+                default:
+                    break;
             }
 
-            //Grant tickets to MTF and Chaos on Chaos spawn
-            else if (ev.NextKnownTeam == Respawning.SpawnableTeamType.ChaosInsurgency)
-            {
-                Respawn.GrantTickets(Respawning.SpawnableTeamType.NineTailedFox, BetterSpawnTickets.Instance.Config.MtfTicketsOnEvent["ChaosRespawn"]); Log.Info($"Gave MTF {BetterSpawnTickets.Instance.Config.MtfTicketsOnEvent["ChaosRespawn"]} because Chaos respawned!");
-                Respawn.GrantTickets(Respawning.SpawnableTeamType.ChaosInsurgency, BetterSpawnTickets.Instance.Config.ChaosTicketsOnEvent["ChaosRespawn"]); Log.Info($"Gave Chaos {BetterSpawnTickets.Instance.Config.ChaosTicketsOnEvent["ChaosRespawn"]} because Chaos respawned!");
-            }
+            Log.Info($"Warhead detonated! MTF now have {Respawn.NtfTickets} and Chaos have {Respawn.ChaosTickets}!");
         }
     }
 }

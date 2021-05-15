@@ -8,13 +8,18 @@ namespace BetterSpawnTickets.Handlers
         //Grant tickets to MTF or Chaos on pocket dimension escape
         public void OnEscapingPD(EscapingPocketDimensionEventArgs ev)
         {
-            if (BetterSpawnTickets.IsFoundation(ev.Player))
+            switch (MyFunctions.GetTeam(ev.Player))
             {
-                Respawn.GrantTickets(Respawning.SpawnableTeamType.NineTailedFox, BetterSpawnTickets.Instance.Config.MtfTicketsOnEvent["PlayerEscapePD"]);
-            }
-            else if (BetterSpawnTickets.IsChaos(ev.Player))
-            {
-                Respawn.GrantTickets(Respawning.SpawnableTeamType.ChaosInsurgency, BetterSpawnTickets.Instance.Config.ChaosTicketsOnEvent["PlayerEscapePD"]);
+                case Respawning.SpawnableTeamType.NineTailedFox:
+                    MyFunctions.GrantTickets(Respawning.SpawnableTeamType.NineTailedFox, BetterSpawnTickets.Instance.Config.MtfTicketsOnEvent["PlayerEscapePD"]);
+                    break;
+
+                case Respawning.SpawnableTeamType.ChaosInsurgency:
+                    MyFunctions.GrantTickets(Respawning.SpawnableTeamType.ChaosInsurgency, BetterSpawnTickets.Instance.Config.ChaosTicketsOnEvent["PlayerEscapePD"]);
+                    break;
+
+                default:
+                    break;
             }
         }
     }
