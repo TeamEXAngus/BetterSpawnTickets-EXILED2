@@ -1,0 +1,106 @@
+better_spawn_tickets:
+
+  # Whether or not the plugin is enabled on this server.
+  is_enabled: true
+  
+  # The number of tickets that MTF should be granted when a Scientist, Guard, or MTF kills a given class. Supports Negative Values
+  mtf_tickets_on_kill:
+    # Grants tickets to the MTF team when a Class-D is killed by a Scientist, Guard, or MTF
+    ClassD: 1
+    # Grants tickets to the MTF team when a Chaos Insurgent is killed by a Scientist, Guard, or MTF
+    ChaosInsurgency: 2
+    # Grants tickets to the MTF team when a Facility Guard is killed by a Scientist, Guard, or MTF
+    FacilityGuard: -1
+    # Grants tickets to the MTF team when a Cadet is killed by a Scientist, Guard, or MTF
+    NtfCadet: -1
+    # Grants tickets to the MTF team when a Lieutenant is killed by a Scientist, Guard, or MTF
+    NtfLieutenant: -2
+    # Grants tickets to the MTF team when an MTF Scientist is killed by a Scientist, Guard, or MTF
+    NtfScientist: -2
+    # Grants tickets to the MTF team when a Commander is killed by a Scientist, Guard, or MTF
+    NtfCommander: -3
+    # Grants tickets to the MTF team when a Scientist is killed by a Scientist, Guard, or MTF
+    Scientist: -1
+    # Note: Vanilla configs have options that grant MTF tickets when SCPs are killed
+    # Grants tickets to the MTF team when SCP-049 is killed by a Scientist, Guard, or MTF
+    Scp049: 0
+    #Grants tickets to the MTF team when a Zombie is killed by a Scientist, Guard, or MTF
+    Scp0492: 1
+    #Grants tickets to the MTF team when SCP-079 is killed by a Scientist, Guard, or MTF
+    Scp079: 0
+    # Grants tickets to the MTF team when SCP-096 is killed by a Scientist, Guard, or MTF
+    Scp096: 0
+    # Grants tickets to the MTF team when SCP-106 is killed by a Scientist, Guard, or MTF
+    Scp106: 0
+    # Grants tickets to the MTF team when SCP-173 is killed by a Scientist, Guard, or MTF
+    Scp173: 0
+    # Grants tickets to the MTF team when SCP-939-53 is killed by a Scientist, Guard, or MTF
+    Scp93953: 0
+    # Grants tickets to the MTF team when SCP-939-89 is killed by a Scientist, Guard, or MTF
+    Scp93989: 0
+    # Grants tickets to the MTF team when a Tutorial is killed by a Scientist, Guard, or MTF
+    Tutorial: 2
+    
+  # The number of tickets that Chaos should be granted when a Class D or Chaos Insurgent kills a given class. Supports Negative Values
+  chaos_tickets_on_kill:
+    # Grants tickets to the Chaos team when a Class-D is killed by a Class-D or Chaos Insurgent
+    ClassD: -1
+    # Grants tickets to the Chaos team when a Chaos Insurgent is killed by a Class-D or Chaos Insurgent
+    ChaosInsurgency: -2
+    # Grants tickets to the Chaos team when a Facility Guard is killed by a Class-D or Chaos Insurgent
+    FacilityGuard: 1
+    # Grants tickets to the Chaos team when a Cadet is killed by a Class-D or Chaos Insurgent
+    NtfCadet: 1
+    # Grants tickets to the Chaos team when a Lieutenant is killed by a Class-D or Chaos Insurgent
+    NtfLieutenant: 2
+    # Grants tickets to the Chaos team when an Chaos Scientist is killed by a Class-D or Chaos Insurgent
+    NtfScientist: 2
+    # Grants tickets to the Chaos team when a Commander is killed by a Class-D or Chaos Insurgent
+    NtfCommander: 3
+	  # Note: Vanilla configs have an option that grants Chaos tickets when a Scientist is killed
+    # Grants tickets to the Chaos team when a Scientist is killed by a Class-D or Chaos Insurgent
+    Scientist: 1
+    # Grants tickets to the Chaos team when SCP-049 is killed by a Class-D or Chaos Insurgent
+    Scp049: 0
+    #Grants tickets to the Chaos team when a Zombie is killed by a Class-D or Chaos Insurgent
+    Scp0492: 0
+    #Grants tickets to the Chaos team when SCP-079 is killed by a Class-D or Chaos Insurgent
+    Scp079: 0
+    # Grants tickets to the Chaos team when SCP-096 is killed by a Class-D or Chaos Insurgent
+    Scp096: 0
+    # Grants tickets to the Chaos team when SCP-106 is killed by a Class-D or Chaos Insurgent
+    Scp106: 0
+    # Grants tickets to the Chaos team when SCP-173 is killed by a Class-D or Chaos Insurgent
+    Scp173: 0
+    # Grants tickets to the Chaos team when SCP-939-53 is killed by a Class-D or Chaos Insurgent
+    Scp93953: 0
+    # Grants tickets to the Chaos team when SCP-939-89 is killed by a Class-D or Chaos Insurgent
+    Scp93989: 0
+    # Grants tickets to the Chaos team when a Tutorial is killed by a Class-D or Chaos Insurgent
+    Tutorial: 0
+    
+  # How many tickets the MTF team should be granted for a given event. Supports negative values.
+  mtf_tickets_on_event:
+    # Grants tickets when a generator is activated, regardless of who activated it
+    GeneratorActivated: 1
+    # Grants tickets when the warhead goes off, regardless of who activated it
+    WarheadDetonation: 5
+    # Grants tickets when a Scientist, Guard, or MTF escapes the pocket dimension
+    PlayerEscapePD: 0
+    # Grants tickets when the MTF team respawn
+    MtfRespawn: 0
+    # Grants tickets when the Chaos team respawn
+    ChaosRespawn: 5
+    
+  # How many tickets the Chaos team should be granted for a given event. Supports negative values.
+  chaos_tickets_on_event:
+    # Grants tickets when a generator is activated, regardless of who activated it
+    GeneratorActivated: 0
+    # Grants tickets when the warhead goes off, regardless of who activated it
+    WarheadDetonation: 0
+    # Grants tickets when a Class-D or Chaos Insurgent escapes the pocket dimension
+    PlayerEscapePD: 1
+    # Grants tickets when the MTF team respawn
+    MtfRespawn: 5
+    # Grants tickets when the Chaos team respawn
+    ChaosRespawn: 0
