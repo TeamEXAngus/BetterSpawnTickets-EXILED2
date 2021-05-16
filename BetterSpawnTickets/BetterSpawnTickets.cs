@@ -24,7 +24,6 @@ namespace BetterSpawnTickets
         private Handlers.GeneratorActivated generatorActivated;
         private Handlers.WarheadDetonation warheadDetonation;
 
-        //Copied from tutorial
         private BetterSpawnTickets()
         {
         }
