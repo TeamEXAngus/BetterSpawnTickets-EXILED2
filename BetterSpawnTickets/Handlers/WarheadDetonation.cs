@@ -8,7 +8,6 @@ namespace BetterSpawnTickets.Handlers
         {
             //Grant tickets to MTF and Chaos when warhead detonated
             MyFunctions.GrantBothTeamsTickets("WarheadDetonation");
-            Log.Info($"Warhead detonated! MTF now have {Respawn.NtfTickets} and Chaos have {Respawn.ChaosTickets}!");
         }
     }
 }

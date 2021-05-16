@@ -21,8 +21,6 @@ namespace BetterSpawnTickets.Handlers
                 default:
                     break;
             }
-
-            Log.Info($"Warhead detonated! MTF now have {Respawn.NtfTickets} and Chaos have {Respawn.ChaosTickets}!");
         }
     }
 }
