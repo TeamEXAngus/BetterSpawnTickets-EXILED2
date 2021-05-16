@@ -31,7 +31,7 @@ namespace BetterSpawnTickets
             {"Tutorial", 0 },
         };
 
-        [Description("The number of tickets that MTF should be granted when a Class D or Chaos Insurgent kills a given class. Supports Negative Values")]
+        [Description("The number of tickets that Chaos should be granted when a Class D or Chaos Insurgent kills a given class. Supports Negative Values")]
         public Dictionary<string, int> ChaosTicketsOnKill { get; set; } = new Dictionary<string, int>
         {
             {"ClassD", 0 },
