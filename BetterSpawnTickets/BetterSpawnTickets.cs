@@ -11,10 +11,12 @@ namespace BetterSpawnTickets
 {
     public class BetterSpawnTickets : Plugin<Config>
     {
-        private static readonly Lazy<BetterSpawnTickets> LazyInstance = new Lazy<BetterSpawnTickets>(valueFactory: () => new BetterSpawnTickets());
-        public static BetterSpawnTickets Instance => LazyInstance.Value;
+        private static BetterSpawnTickets singleton = new BetterSpawnTickets();
+        public static BetterSpawnTickets Instance => singleton;
+        public override PluginPriority Priority { get; } = PluginPriority.Medium;
 
-        public override PluginPriority Priority { get; } = PluginPriority.Medium; //Plugin priority determines when during startup the plugin gets loaded
+        public override Version RequiredExiledVersion { get; } = new Version(2, 10, 0);
+        public override Version Version { get; } = new Version(1, 0, 1);
 
         //Declaring event handlers
 
