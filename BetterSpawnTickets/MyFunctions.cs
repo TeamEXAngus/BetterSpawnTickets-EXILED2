@@ -29,7 +29,7 @@ namespace BetterSpawnTickets
         public static int NegativeTicketHandler(Respawning.SpawnableTeamType team, int amount)
         {
             int tickets = (team == Respawning.SpawnableTeamType.NineTailedFox ? Respawn.NtfTickets : Respawn.ChaosTickets);
-            return Math.Max(-1 * tickets, amount);
+            return (tickets - amount) > 0 ? amount : -1 * tickets;
         }
 
         //Exiled's grant tickets function with NegativeTicketHandler() grafted in
