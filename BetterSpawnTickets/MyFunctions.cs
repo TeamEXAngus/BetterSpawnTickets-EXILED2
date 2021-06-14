@@ -12,7 +12,7 @@ namespace BetterSpawnTickets
         public static int NegativeTicketHandler(Respawning.SpawnableTeamType team, int amount)
         {
             int tickets = (team == Respawning.SpawnableTeamType.NineTailedFox ? Respawn.NtfTickets : Respawn.ChaosTickets);
-            return (tickets + amount <= 0) ?
+            return (tickets + amount >= 0) ?
                 amount :
                 -tickets;
         }
