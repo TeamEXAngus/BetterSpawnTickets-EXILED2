@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using Exiled.API.Enums;
 using Exiled.API.Features;
+using Respawning;
 
 namespace BetterSpawnTickets
 {
@@ -11,11 +12,13 @@ namespace BetterSpawnTickets
         public static int NegativeTicketHandler(Respawning.SpawnableTeamType team, int amount)
         {
             int tickets = (team == Respawning.SpawnableTeamType.NineTailedFox ? Respawn.NtfTickets : Respawn.ChaosTickets);
-            return (tickets - amount) > 0 ? amount : -1 * tickets;
+            return (tickets + amount <= 0) ?
+                amount :
+                -tickets;
         }
 
         //Exiled's grant tickets function with NegativeTicketHandler() grafted in
-        public static void GrantTickets(Respawning.SpawnableTeamType team, int amount)
+        public static void GrantTickets(SpawnableTeamType team, int amount)
         {
             Respawn.GrantTickets(team, NegativeTicketHandler(team, amount));
         }
@@ -25,7 +28,7 @@ namespace BetterSpawnTickets
         {
             try
             {
-                GrantTickets(Respawning.SpawnableTeamType.NineTailedFox, BetterSpawnTickets.Instance.Config.MtfTicketsOnEvent[reason]);
+                GrantTickets(SpawnableTeamType.NineTailedFox, BetterSpawnTickets.Instance.Config.MtfTicketsOnEvent[reason]);
             }
             catch (KeyNotFoundException)
             {

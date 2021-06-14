@@ -1,5 +1,6 @@
 ﻿using Exiled.Events.EventArgs;
 using Exiled.API.Features;
+using Respawning;
 
 namespace BetterSpawnTickets.Handlers
 {
@@ -10,11 +11,11 @@ namespace BetterSpawnTickets.Handlers
             //Grant tickets to MTF and Chaos whenever a team respawns
             switch (ev.NextKnownTeam)
             {
-                case Respawning.SpawnableTeamType.NineTailedFox:
+                case SpawnableTeamType.NineTailedFox:
                     MyFunctions.GrantBothTeamsTickets("MtfRespawn");
                     break;
 
-                case Respawning.SpawnableTeamType.ChaosInsurgency:
+                case SpawnableTeamType.ChaosInsurgency:
                     MyFunctions.GrantBothTeamsTickets("ChaosRespawn");
                     break;
 

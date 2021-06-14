@@ -16,11 +16,11 @@ namespace BetterSpawnTickets.Handlers
                 {
                     switch (ev.Killer.Side)
                     {
-                        case Exiled.API.Enums.Side.Mtf:
+                        case Side.Mtf:
                             MyFunctions.GrantTickets(Respawning.SpawnableTeamType.NineTailedFox, BetterSpawnTickets.Instance.Config.MtfTicketsOnKill[ev.Target.Role.ToString()]);
                             break;
 
-                        case Exiled.API.Enums.Side.ChaosInsurgency:
+                        case Side.ChaosInsurgency:
                             MyFunctions.GrantTickets(Respawning.SpawnableTeamType.ChaosInsurgency, BetterSpawnTickets.Instance.Config.ChaosTicketsOnKill[ev.Target.Role.ToString()]);
                             break;
 
