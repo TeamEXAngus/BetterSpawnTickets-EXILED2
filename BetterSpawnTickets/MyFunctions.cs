@@ -1,18 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using Respawning;
 using Exiled.API.Enums;
 using Exiled.API.Features;
-using Respawning;
+using System.Collections.Generic;
 
 namespace BetterSpawnTickets
 {
     internal class MyFunctions
     {
         //Prevents spawn tickets from ever being set below 0 by returning no less than -1 * the team's tickets
-        public static int NegativeTicketHandler(Respawning.SpawnableTeamType team, int amount)
+        public static int NegativeTicketHandler(SpawnableTeamType team, int amount)
         {
-            int tickets = (team == Respawning.SpawnableTeamType.NineTailedFox ? Respawn.NtfTickets : Respawn.ChaosTickets);
-            return (tickets + amount >= 0) ?
+            int tickets = (team == SpawnableTeamType.NineTailedFox) ?
+                Respawn.NtfTickets :
+                Respawn.ChaosTickets;
+
+            return (tickets + amount > 0) ?
                 amount :
                 -tickets;
         }
@@ -37,7 +39,7 @@ namespace BetterSpawnTickets
 
             try
             {
-                GrantTickets(Respawning.SpawnableTeamType.ChaosInsurgency, BetterSpawnTickets.Instance.Config.ChaosTicketsOnEvent[reason]);
+                GrantTickets(SpawnableTeamType.ChaosInsurgency, BetterSpawnTickets.Instance.Config.ChaosTicketsOnEvent[reason]);
             }
             catch (KeyNotFoundException)
             {
