@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using Exiled.API.Enums;
 using Exiled.API.Features;
 
@@ -22,8 +23,29 @@ namespace BetterSpawnTickets
         //Grants both teams tickets for the same reason
         public static void GrantBothTeamsTickets(string reason)
         {
-            GrantTickets(Respawning.SpawnableTeamType.NineTailedFox, BetterSpawnTickets.Instance.Config.MtfTicketsOnEvent[reason]);
-            GrantTickets(Respawning.SpawnableTeamType.ChaosInsurgency, BetterSpawnTickets.Instance.Config.ChaosTicketsOnEvent[reason]);
+            try
+            {
+                GrantTickets(Respawning.SpawnableTeamType.NineTailedFox, BetterSpawnTickets.Instance.Config.MtfTicketsOnEvent[reason]);
+            }
+            catch (KeyNotFoundException)
+            {
+                Log.Error("mtf_tickets_on_event" + $"was missing the value {reason}");
+            }
+
+            try
+            {
+                GrantTickets(Respawning.SpawnableTeamType.ChaosInsurgency, BetterSpawnTickets.Instance.Config.ChaosTicketsOnEvent[reason]);
+            }
+            catch (KeyNotFoundException)
+            {
+                Log.Error("chaos_tickets_on_event" + $"was missing the value {reason}");
+            }
+        }
+
+        public static string ConfigName(Side side, string name)
+        {
+            var a = side == Side.Mtf ? "mtf_" : "chaos_";
+            return $"{a}{name}".ToLower();
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using Exiled.Events.EventArgs;
 using Exiled.API.Features;
+using System.Collections.Generic;
 
 namespace BetterSpawnTickets.Handlers
 {
@@ -8,18 +9,25 @@ namespace BetterSpawnTickets.Handlers
         //Grant tickets to MTF or Chaos on pocket dimension escape
         public void OnEscapingPD(EscapingPocketDimensionEventArgs ev)
         {
-            switch (ev.Player.Side)
+            try
             {
-                case Exiled.API.Enums.Side.Mtf:
-                    MyFunctions.GrantTickets(Respawning.SpawnableTeamType.NineTailedFox, BetterSpawnTickets.Instance.Config.MtfTicketsOnEvent["PlayerEscapePD"]);
-                    break;
+                switch (ev.Player.Side)
+                {
+                    case Exiled.API.Enums.Side.Mtf:
+                        MyFunctions.GrantTickets(Respawning.SpawnableTeamType.NineTailedFox, BetterSpawnTickets.Instance.Config.MtfTicketsOnEvent["PlayerEscapePD"]);
+                        break;
 
-                case Exiled.API.Enums.Side.ChaosInsurgency:
-                    MyFunctions.GrantTickets(Respawning.SpawnableTeamType.ChaosInsurgency, BetterSpawnTickets.Instance.Config.ChaosTicketsOnEvent["PlayerEscapePD"]);
-                    break;
+                    case Exiled.API.Enums.Side.ChaosInsurgency:
+                        MyFunctions.GrantTickets(Respawning.SpawnableTeamType.ChaosInsurgency, BetterSpawnTickets.Instance.Config.ChaosTicketsOnEvent["PlayerEscapePD"]);
+                        break;
 
-                default:
-                    break;
+                    default:
+                        break;
+                }
+            }
+            catch (KeyNotFoundException)
+            {
+                Log.Error(MyFunctions.ConfigName(ev.Player.Side, "tickets_on_kill") + $"was missing the value PlayerEscapePD");
             }
         }
     }
