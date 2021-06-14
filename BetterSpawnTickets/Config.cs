@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel;
-using System.Collections.Generic;
 using Exiled.API.Interfaces;
+using System.Collections.Generic;
 
 namespace BetterSpawnTickets
 {

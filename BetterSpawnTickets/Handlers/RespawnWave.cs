@@ -1,6 +1,5 @@
-﻿using Exiled.Events.EventArgs;
-using Exiled.API.Features;
-using Respawning;
+﻿using Respawning;
+using Exiled.Events.EventArgs;
 
 namespace BetterSpawnTickets.Handlers
 {
